@@ -10,18 +10,23 @@
 
 @implementation ProductInfoViewController
 
-- (void) viewDidLoad 
+- (void) fetchProductInfo:(NSString *)ean
 {
-    [super viewDidLoad];
-
     ProductInfo *productInfo = [[ProductInfo alloc] init];
     productInfo.delegate = self;
-    [productInfo fetchProductInfo:@"0850613001013"];    
+    [productInfo fetchProductInfo:ean];    
+    [productInfo release];
 }
 
 - (void) productDescriptionWasFetched:(NSString *)description
 {
 	NSLog(@"description: %@", description);
+}
+
+- (void) viewDidLoad 
+{
+    [super viewDidLoad];
+	[self fetchProductInfo:@"0850613001013"];
 }
 
 - (void)dealloc 

@@ -1,0 +1,17 @@
+
+// See http://upcdatabase.com and request an RPC key.
+#import "ProductInfo.h"
+
+
+// Try calling this with EAN 0850613001013
+- (void) fetchProductInfo:(NSString *)ean
+{
+    ProductInfo *productInfo = [[ProductInfo alloc] init];
+    productInfo.delegate = self;
+    [productInfo fetchProductInfo:ean];    
+}
+
+- (void) productDescriptionWasFetched:(NSString *)description
+{
+    NSLog(@"description: %@", description);
+}
