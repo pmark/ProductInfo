@@ -9,7 +9,9 @@
 #import "ProductInfo.h"
 #import "AIXMLSerialization.h"
 
-#define UPC_DATABASE_RPC_KEY @"95608012ecf4406ed834aad078a3fcad7e356067"
+// See http://upcdatabase.com
+
+#define UPC_DATABASE_RPC_KEY @"YOUR RPC KEY HERE"
 
 @implementation ProductInfo
 
