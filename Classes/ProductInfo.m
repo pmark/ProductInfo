@@ -17,14 +17,18 @@
 
 @synthesize delegate;
 
-- (id) decodeXML:(NSString *)xml error:(NSError **)error {
+- (id) decodeXML:(NSString *)xml error:(NSError **)error 
+{
     NSData *data = [xml dataUsingEncoding:NSUTF8StringEncoding];
     NSError *parseError = nil;
     NSXMLDocument *doc = [[[NSXMLDocument alloc] initWithData:data options:NSXMLDocumentTidyXML error:&parseError] autorelease];
     
-    if(parseError != nil) {        
-        if(error != nil)
+    if (parseError != nil) 
+    {        
+        if (error != nil)
+        {
             *error = parseError;
+        }
         
         return nil;
     }
@@ -52,7 +56,7 @@
             }
         }
     }
-    @catch (NSException * e) 
+    @catch (NSException *e) 
     {
         NSLog(@"Error parsing XML: %@", [e reason]);
     }

@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "ProductInfo.h"
 
-@interface ProductInfoViewController : UIViewController <ProductInfoDelegate> {
-
+@interface ProductInfoViewController : UIViewController <ProductInfoDelegate> 
+{
+	ProductInfo *productInfo;
 }
+
+@property (nonatomic, retain) ProductInfo *productInfo;
 
 @end
 

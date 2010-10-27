@@ -10,28 +10,32 @@
 
 @implementation ProductInfoViewController
 
+@synthesize productInfo;
+
+
+- (void)dealloc 
+{
+    [productInfo release];
+    [super dealloc];
+}
+
 - (void) fetchProductInfo:(NSString *)ean
 {
-    ProductInfo *productInfo = [[ProductInfo alloc] init];
+    self.productInfo = [[[ProductInfo alloc] init] autorelease];
     productInfo.delegate = self;
     [productInfo fetchProductInfo:ean];    
-    [productInfo release];
 }
 
 - (void) productDescriptionWasFetched:(NSString *)description
 {
 	NSLog(@"description: %@", description);
+    [productInfo release];
 }
 
 - (void) viewDidLoad 
 {
     [super viewDidLoad];
 	[self fetchProductInfo:@"0850613001013"];
-}
-
-- (void)dealloc 
-{
-    [super dealloc];
 }
 
 @end
